@@ -24,7 +24,8 @@ class GetProxies:
         else:
             return None
 
-
+'''
 gp = GetProxies()
 proxies = gp.get_proxies('https', 'DE')
 print(proxies)
+'''
