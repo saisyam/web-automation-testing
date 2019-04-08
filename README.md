@@ -7,4 +7,4 @@ Splinter is an open source web application testing tool built using Python. It h
 
 3. [getproxies.py](https://github.com/saisyam/web-automation-testing/blob/master/getproxies.py) - Get HTTP/HTTPS proxies to be used with Splinter for testing. These proxies are provided by [https://www.proxy-list.download/](https://www.proxy-list.download/) API.
 
-
+4. [proxy_chrome.py](https://github.com/saisyam/web-automation-testing/blob/master/proxy_chrome.py) - Demonstrates how to use proxies in chrome browser.
