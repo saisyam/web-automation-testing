@@ -64,9 +64,10 @@ class UserAgent:
             ua = self.edge[r]
         return ua
 
-
+'''
 ua = UserAgent()
 print(ua.get_user_agent('chrome'))
 print(ua.get_user_agent('firefox'))
 print(ua.get_user_agent('safari'))
 print(ua.get_user_agent('edge'))
+'''
