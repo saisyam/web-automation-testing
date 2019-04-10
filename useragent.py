@@ -61,6 +61,14 @@ class UserAgent:
             "Opera/9.80 (Windows NT 6.1; WOW64; U; pt) Presto/2.10.229 Version/11.62",
             "Opera/9.80 (Windows NT 6.0; U; pl) Presto/2.10.229 Version/11.62"
         ]
+        self.lynx = [
+            "Lynx/2.8.8dev.3 libwww-FM/2.14 SSL-MM/1.4.1",
+            "Lynx/2.8.7rel.2 libwww-FM/2.14 SSL-MM/1.4.1 OpenSSL/1.0.0a",
+            "Lynx/2.8.6rel.5 libwww-FM/2.14 SSL-MM/1.4.1 OpenSSL/1.0.0a",
+            "Lynx/2.8.6rel.5 libwww-FM/2.14 SSL-MM/1.4.1 OpenSSL/0.9.8g",
+            "Lynx/2.8.6rel.5 libwww-FM/2.14 SSL-MM/1.4.1 OpenSSL/0.9.8b",
+            "Lynx/2.8.6rel.5 libwww-FM/2.14"
+        ]
     
     def get_user_agent(self, browser):
         ua = self.chrome[0]
