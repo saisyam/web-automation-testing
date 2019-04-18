@@ -2,10 +2,12 @@
 # This proxy API is taken from https://www.proxy-list.download/api/v1
 
 import requests
+import json
 
 class GetProxies:
     def __init__(self):
         self.url = "https://www.proxy-list.download/api/v1/get"
+        self.getproxylisturl = "https://api.getproxylist.com/proxy"
         
     def get_proxies(self, type, country):
         url = self.url+"?type="+type+"&country="+country+"&anon=elite"
@@ -23,9 +25,22 @@ class GetProxies:
             return proxies
         else:
             return None
+    
+    def getproxylist(self, type, country):
+        url = self.getproxylisturl+"?anonymity[]=high%20anonymity&anonymity[]=transparent&maxConnectTime=1&country[]="+country
+        if type=="https":
+            url = url + "&allowHttps=1"
+        r = requests.get(url)
+        proxies = []
+        if r.status_code == 200:
+            proxy = {}
+            proxy_data = json.loads(r.text)
+            proxy["ip"] = proxy_data['ip']
+            proxy["port"] = proxy_data['port']
+            proxies.append(proxy)
+        return proxies
 
-'''
+
 gp = GetProxies()
-proxies = gp.get_proxies('https', 'DE')
+proxies = gp.getproxylist('https', 'DE')
 print(proxies)
-'''
