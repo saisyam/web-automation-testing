@@ -8,6 +8,7 @@ class GetProxies:
     def __init__(self):
         self.url = "https://www.proxy-list.download/api/v1/get"
         self.getproxylisturl = "https://api.getproxylist.com/proxy"
+        self.proxyscrapeurl = "https://api.proxyscrape.com"
         
     def get_proxies(self, type, country):
         url = self.url+"?type="+type+"&country="+country+"&anon=elite"
@@ -38,9 +39,31 @@ class GetProxies:
             proxy["ip"] = proxy_data['ip']
             proxy["port"] = proxy_data['port']
             proxies.append(proxy)
-        return proxies
+            return proxies
+        else:
+            return None
+    
+    def proxyscrape(self, type, country):
+        url = self.proxyscrapeurl+"?request=getproxies&proxytype=http&timeout=5000&anonymity=elite&country="+country
+        if type=="https":
+            url = url + "&ssl=yes"
+        r = requests.get(url)
+        proxies = []
+        if r.status_code == 200:
+            response = r.text.split("\r\n")
+            for line in response:
+                proxy = {}
+                data = line.split(":")
+                if len(data) == 2:
+                    proxy["ip"] = data[0]
+                    proxy["port"] = data[1]
+                    proxies.append(proxy)
+            return proxies
+        else:
+            return None
 
-
+'''
 gp = GetProxies()
-proxies = gp.getproxylist('https', 'DE')
+proxies = gp.proxyscrape('https', 'DE')
 print(proxies)
+'''
