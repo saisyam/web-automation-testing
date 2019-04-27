@@ -10,3 +10,5 @@ Splinter is an open source web application testing tool built using Python. It h
 4. [proxy_chrome.py](https://github.com/saisyam/web-automation-testing/blob/master/proxy_chrome.py) - Demonstrates how to use proxies in chrome browser.
 
 5. [useragent.py](https://github.com/saisyam/web-automation-testing/blob/master/useragent.py) - Generates a useragent string randomly based on browser type as input.
+
+6. [fake_webcam](https://github.com/saisyam/web-automation-testing/tree/master/fake_webcam) - Explains how to use fake webcam options in Chrome web driver to test web applications that use webcam.
