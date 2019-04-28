@@ -88,7 +88,8 @@ class GetProxies:
         else:
             return None
 
-
+'''
 gp = GetProxies()
 proxies = gp.getfreeproxies('https', 'DE')
 print(proxies)
+'''
