@@ -3,6 +3,7 @@
 
 import requests
 import json
+import random
 
 class GetProxies:
     def __init__(self):
@@ -10,6 +11,25 @@ class GetProxies:
         self.getproxylisturl = "https://api.getproxylist.com/proxy"
         self.proxyscrapeurl = "https://api.proxyscrape.com"
         
+    def getfreeproxies(self, type, country):
+        choice = random.randint(1,3)
+        proxies = []
+        if choice == 1:
+            proxies = self.get_proxies(type, country)
+        elif choice == 2:
+            proxies = self.getproxylist(type, country)
+        elif choice == 3:
+            proxies =  self.proxyscrape(type, country)
+        
+        if proxies is None and choice == 1:
+            proxies = self.getproxylist(type, country)
+        if proxies is None and choice == 2:
+            proxies = self.proxyscrape(type, country)
+        if proxies is None and choice == 3:
+            proxies = self.get_proxies(type, country)
+
+        return proxies
+
     def get_proxies(self, type, country):
         url = self.url+"?type="+type+"&country="+country+"&anon=elite"
         r = requests.get(url)
@@ -62,8 +82,7 @@ class GetProxies:
         else:
             return None
 
-'''
+
 gp = GetProxies()
-proxies = gp.proxyscrape('https', 'DE')
+proxies = gp.getfreeproxies('https', 'DE')
 print(proxies)
-'''
