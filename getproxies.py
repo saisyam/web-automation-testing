@@ -1,6 +1,3 @@
-# This class provies a list of HTTP/HTTPS proxies based on country code
-# This proxy API is taken from https://www.proxy-list.download/api/v1
-
 import requests
 import json
 import random
@@ -80,7 +77,8 @@ class GetProxies:
         else:
             return None
 
-
+'''
 gp = GetProxies()
 proxies = gp.getfreeproxies('https', 'DE')
 print(proxies)
+'''
