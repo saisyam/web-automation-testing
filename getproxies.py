@@ -37,14 +37,11 @@ class GetProxies:
         if r.status_code == 200:
             response = r.text.split("\r\n")
             for line in response:
-                proxy = {}
                 data = line.split(":")
                 if len(data) == 2:
-                    proxy["ip"] = data[0]
-                    proxy["port"] = data[1]
                     if port is not None and port == data[1]:
-                        proxies.append(proxy)
-                    proxies.append(proxy)
+                        proxies.append(data[0]+":"+data[1])
+                    proxies.append(data[0]+":"+data[1])
             return proxies
         else:
             return None
@@ -56,13 +53,10 @@ class GetProxies:
         r = requests.get(url)
         proxies = []
         if r.status_code == 200:
-            proxy = {}
             proxy_data = json.loads(r.text)
-            proxy["ip"] = proxy_data['ip']
-            proxy["port"] = proxy_data['port']
-            if port is not None and port == proxy['port']:
-                proxies.append(proxy)
-            proxies.append(proxy)
+            if port is not None and port == proxy_data['port']:
+                proxies.append(proxy_data['ip']+":"+proxy_data['port'])
+            proxies.append(proxy_data['ip']+":"+proxy_data['port'])
             return proxies
         else:
             return None
@@ -79,17 +73,14 @@ class GetProxies:
                 proxy = {}
                 data = line.split(":")
                 if len(data) == 2:
-                    proxy["ip"] = data[0]
-                    proxy["port"] = data[1]
                     if port is not None and port == data[1]:
-                        proxies.append(proxy)
-                    proxies.append(proxy)
+                        proxies.append(data[0]+":"+data[1])
+                    proxies.append(data[0]+":"+data[1])
             return proxies
         else:
             return None
 
-'''
+
 gp = GetProxies()
 proxies = gp.getfreeproxies('https', 'DE')
 print(proxies)
-'''

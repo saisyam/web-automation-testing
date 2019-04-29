@@ -8,11 +8,10 @@ proxies = gp.get_proxies('https', 'DE')
 url = "https://www.expressvpn.com/what-is-my-ip"
 
 for proxy in proxies:
-    PROXY = proxy['ip']+":"+proxy['port']
-    print("Proxy: "+ PROXY)
+    print("Proxy: "+ proxy)
     ua = UserAgent()
     chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument('--proxy-server=%s' % PROXY)
+    chrome_options.add_argument('--proxy-server=%s' % proxy)
     chrome_options.add_argument('user-agent='+ua.get_user_agent("chrome"))
     try:
         browser = Browser('chrome', options=chrome_options)
