@@ -12,3 +12,5 @@ Splinter is an open source web application testing tool built using Python. It h
 5. [useragent.py](https://github.com/saisyam/web-automation-testing/blob/master/useragent.py) - Generates a useragent string randomly based on browser type as input.
 
 6. [fake_webcam](https://github.com/saisyam/web-automation-testing/tree/master/fake_webcam) - Explains how to use fake webcam options in Chrome web driver to test web applications that use webcam.
+
+7.  [headless.py](https://github.com/saisyam/web-automation-testing/blob/master/headless.py) - Running Splinter in headless mode. Very simple example. Detailed explanation is available at my blog [here](http://saisyam.com/using-splinter-in-headless-mode-on-linux-servers/)
