@@ -16,7 +16,7 @@ for proxy in proxies:
     try:
         browser = Browser('chrome', options=chrome_options)
         browser.visit(url)
-        ip_address = browser.find_by_css('p[class="ip-address"').text
+        ip_address = browser.find_by_css('p[class="ip-address"]').text
         if ip_address == proxy['ip']:
             print("IP address match with Proxy: "+ip_address)
             browser.quit()
