@@ -1,10 +1,9 @@
 from splinter import Browser
 from selenium import webdriver
-from getproxies import GetProxies
+from getproxies import *
 from useragent import UserAgent
 
-gp = GetProxies()
-proxies = gp.get_proxies('https', 'DE')
+proxies = get_proxies()
 url = "https://www.expressvpn.com/what-is-my-ip"
 
 for proxy in proxies:
