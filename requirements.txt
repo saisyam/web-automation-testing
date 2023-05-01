@@ -1,4 +1,4 @@
-Flask==1.1.2
+Flask==2.3.2
 requests==2.23.0
 splinter==0.13.0
 ffmpeg-python==0.2.0
